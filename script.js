@@ -7,6 +7,8 @@ const previousNumberElement = document.querySelector('[data-previous]');
 const currentNumberElement = document.querySelector('[data-current]');
 
 class Calculator {
+    justCalculated = false;
+
     constructor(previousNumberElement, currentNumberElement) {
         this.previousNumberElement = previousNumberElement;
         this.currentNumberElement = currentNumberElement;
@@ -31,6 +33,8 @@ class Calculator {
     }
 
     appendNumber(number) {
+        this.justCalculated = false;
+        console.log(this.justCalculated)
         if (number === '.' && this.currentNumber.includes(".")) {
             return;
         } else if (this.currentNumber == 0) {
@@ -42,12 +46,16 @@ class Calculator {
 
     update() {
         this.currentNumberElement.innerText = this.currentNumber;
-        console.log(this.previousNumber);
-        console.log(this.currentOperation);
         this.previousNumberElement.innerText = this.previousNumber.toString().concat(" ", this.currentOperation);
     }
 
     operation(operation) {
+        if (this.justCalculated === true) {
+            this.currentOperation = operation;
+            this.currentNumber = 0;
+            this.update();
+            return;
+        }
         if (this.currentNumber === "0") {
             return;
         } else if (this.previousNumber == "") {
@@ -56,10 +64,10 @@ class Calculator {
             calculator.update();
             this.currentNumber = "0";
         } else if (this.previousNumber !== "") {
-            this.currentOperation = operation;
             this.evaluate();
         }
-
+        this.currentOperation = operation;
+        this.currentNumber = 0;
     }
 
     evaluate() {
@@ -90,6 +98,7 @@ class Calculator {
         this.currentNumber = result;
         this.previousNumber = result;
         this.update();
+        this.justCalculated = true;
     }
 }
 
