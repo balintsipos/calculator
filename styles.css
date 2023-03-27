@@ -1,4 +1,61 @@
-button {
-    width: 100px;
-    height: 100px;
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.screen {
+    word-wrap: break-word;
+    word-break: break-all;
+    grid-column: 1 / -1;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 10px;
+    flex-direction: column;
+}
+
+#prev-number {
+    font-size: 1rem;
+}
+
+#current-number {
+    font-size: 2.5rem;
+}
+
+.calc-grid-container {
+    display: grid;
+    gap: 5px;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.calc-grid-container > button {
+    font-size: 2rem;
+    border-radius: 5px;
+    border: 3px solid black;
+    outline: none;
+    background-color: white;
+    color: black;
+    transition: all 0.2s;
+}
+
+.calc-grid-container > button:hover {
+    color: white;
+    background-color: black;
+    transition: all 0.15s;
 }

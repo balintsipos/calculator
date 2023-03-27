@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <title>Calculator</title>
 </head>
@@ -14,26 +14,24 @@
             <div id="prev-number">12345 +</div>
             <div id="current-number">121345678</div>
         </div>
-        <div class="button-container">
-            <button class="span-two">Clear</button>
-            <button>Delete</button>
-            <button class="operand">/</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button class="operand">X</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button class="operand">-</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button class="operand">+</button>
-            <button class="dot">.</button>
-            <button>0</button>
-            <button class="span-two">=</button>
-        </div>
+        <button data-operand>C</button>
+        <button>DEL</button>
+        <button data-operand>÷</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button data-operand>X</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button data-operand>-</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button data-operand>+</button>
+        <button class="dot">.</button>
+        <button>0</button>
+        <button class="span-two">=</button>
     </div>
 </body>
 </html>
