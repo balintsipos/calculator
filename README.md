@@ -1,1 +1,1 @@
-A simple online calculator app, made with JavaScript, CSS and HTML.
+Online calculator app, made with JavaScript, CSS and HTML.
