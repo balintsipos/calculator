@@ -2,6 +2,7 @@
     box-sizing: border-box;
     font-family: sans-serif;
     font-size: 20px;
+    transition: all 0.2s;
 }
 
 html, body {
@@ -16,7 +17,6 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    transition: all 0.2s;
 }
 
 .content {
@@ -52,7 +52,6 @@ body {
     flex-direction: column;
     border-radius: 5px;
     border: 1px solid black;
-    transition: all 0.2s;
 }
 
 .screen-dark {
@@ -95,13 +94,11 @@ body {
     outline: none;
     background-color: white;
     color: black;
-    transition: all 0.2s;
 }
 
 .button:hover {
     color: white;
     background-color: black;
-    transition: all 0.15s;
 }
 
 .button-dark {
@@ -113,7 +110,6 @@ body {
 .button-dark:hover {
     color: black;
     background-color: white;
-    transition: all 0.15s;
 }
 
 [data-operator] {
@@ -132,4 +128,22 @@ body {
     padding-right: 20px;
     font-size: 16px;
     padding: 5px;
+    transition: all 0.2s;
+}
+
+.black-link {
+    color: black ;
+}
+
+
+.black-link:visited {
+    color: black ;
+}
+
+.white-link {
+    color: white;
+}
+
+.white-link:visited {
+    color: white;
 }

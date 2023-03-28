@@ -8,8 +8,9 @@ const currentNumberElement = document.querySelector('[data-current]');
 
 const body = document.body;
 const buttons = document.querySelectorAll(".button");
-const screenElement = document.querySelector(".screen")
-const darkModeBtn = document.querySelector('#dark-mode')
+const screenElement = document.querySelector(".screen");
+const darkModeBtn = document.querySelector('#dark-mode');
+const blackLink = document.querySelector('.black-link');
 
 class Calculator {
     justCalculated = false;
@@ -46,6 +47,7 @@ class Calculator {
         } else {
             this.currentNumber = this.currentNumber.toString().concat(number);
         }
+        this.update();
     }
 
     update() {
@@ -115,7 +117,6 @@ const calculator = new Calculator(previousNumberElement, currentNumberElement);
 numberBtns.forEach(element => {
     element.addEventListener('click', () => {
         calculator.appendNumber(element.innerText);
-        calculator.update();
     });
 });
 
@@ -137,7 +138,7 @@ equalsBtn.addEventListener('click', (button) => {
     calculator.evaluate();
 });
 
-darkModeBtn.addEventListener('click', () => {
+toggleDarkMode = () => {
     body.classList.toggle("body-dark");
     buttons.forEach(element => {
         element.classList.toggle("button-dark");
@@ -146,4 +147,38 @@ darkModeBtn.addEventListener('click', () => {
     operationBtns.forEach(element => {
         element.classList.toggle("operator-dark");
     });
-})
+    blackLink.classList.toggle("white-link");
+}
+
+darkModeBtn.addEventListener('click', toggleDarkMode)
+
+window.addEventListener('keydown', (e) => {
+    if ((e.key >= 0 && e.key <= 9) || e.key === ".") {
+        calculator.appendNumber(e.key);
+    }
+    if (e.key === "Enter") {
+        calculator.evaluate();
+    }
+    if (e.key === "+" || e.key === "-") {
+        calculator.operation(e.key);
+    }
+    if (e.key === "*") {
+        calculator.operation("X");
+    }
+    if (e.key === "/") {
+        e.preventDefault();
+        calculator.operation("÷");
+    }
+    if (e.key === ",") {
+        calculator.appendNumber(".");
+    }
+    if (e.key === "Backspace") {
+        calculator.delete();
+    }
+    if (e.key === "Escape") {
+        calculator.clear();
+    }
+    if (e.key === "n") {
+        toggleDarkMode();
+    }
+});
