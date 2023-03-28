@@ -143,4 +143,7 @@ darkModeBtn.addEventListener('click', () => {
         element.classList.toggle("button-dark");
     });
     screenElement.classList.toggle("screen-dark")
+    operationBtns.forEach(element => {
+        element.classList.toggle("operator-dark");
+    });
 })

@@ -116,6 +116,15 @@ body {
     transition: all 0.15s;
 }
 
+[data-operator] {
+    background-color: #e2e2e2;
+    color: black;
+}
+
+.operator-dark {
+    background-color: #1E1E1E;
+    color: white;
+}
 
 .sticky-footer {
     text-align: right;
