@@ -6,6 +6,11 @@ const clearBtn = document.querySelector('[data-clear]');
 const previousNumberElement = document.querySelector('[data-previous]');
 const currentNumberElement = document.querySelector('[data-current]');
 
+const body = document.body;
+const buttons = document.querySelectorAll(".button");
+const screenElement = document.querySelector(".screen")
+const darkModeBtn = document.querySelector('#dark-mode')
+
 class Calculator {
     justCalculated = false;
 
@@ -34,7 +39,6 @@ class Calculator {
 
     appendNumber(number) {
         this.justCalculated = false;
-        console.log(this.justCalculated)
         if (number === '.' && this.currentNumber.includes(".")) {
             return;
         } else if (this.currentNumber == 0) {
@@ -47,7 +51,7 @@ class Calculator {
     update() {
         this.currentNumberElement.innerText = this.currentNumber;
         this.previousNumberElement.innerText = this.previousNumber.toString().concat(" ", this.currentOperation);
-    }
+    }s
 
     operation(operation) {
         if (this.justCalculated === true) {
@@ -57,6 +61,10 @@ class Calculator {
             return;
         }
         if (this.currentNumber === "0") {
+            if (operation == "-")
+            this.currentOperation = operation;
+            this.previousNumber = 0;
+            this.update();
             return;
         } else if (this.previousNumber == "") {
             this.previousNumber = this.currentNumber;
@@ -128,3 +136,11 @@ deleteBtn.addEventListener('click', () => {
 equalsBtn.addEventListener('click', (button) => {
     calculator.evaluate();
 });
+
+darkModeBtn.addEventListener('click', () => {
+    body.classList.toggle("body-dark");
+    buttons.forEach(element => {
+        element.classList.toggle("button-dark");
+    });
+    screenElement.classList.toggle("screen-dark")
+})
